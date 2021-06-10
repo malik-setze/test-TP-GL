@@ -5,10 +5,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.*;
 
-/**
- * A board class that generates a full game board represented by
- * a 2D array of characters.
- */
 public class Board extends JPanel {
 
     private char[][] board;
@@ -17,13 +13,6 @@ public class Board extends JPanel {
     private int scale=1;
     LinkedList<Position> positionList = new LinkedList<Position>();
 
-    /**
-     * The constructor for the board, taking in an x and a y as the
-     * length and height of the board. The outer walls are represented
-     * with the '#', inner walls are '=', freespace is 'u'.
-     * @param x the size of the board in the x direction
-     * @param y the size of the board in the y direction
-     */
     public Board(int x, int y, int obj){
         unVisited = (x*x);
         x *= 2; y *= 2; x++; y++;
@@ -35,9 +24,6 @@ public class Board extends JPanel {
         generateBoard();
     }
 
-    /**
-     * The generateBoard() resets the board
-     */
     public void generateBoard(){
         for (int i=0; i < size; i++){
             for (int k=0; k < size; k++){
@@ -60,12 +46,6 @@ public class Board extends JPanel {
         generate(1,1);
     }
 
-
-    /**
-     * Modification of the paint method that correctly paints the
-     * game board on the canvas with respect to the 2D array of the
-     * maze, scaled accordingly.
-     */
     public void paint(Graphics g){
         super.paint(g);
         int n = 500/(scale+10);
@@ -88,31 +68,13 @@ public class Board extends JPanel {
             }
         }
     }
-
-    /**
-     * A function to get the value at the specified coordinates
-     * @param x X coordinate.
-     * @param y Y coordinate.
-     * @return the value at the x and y coordinate.
-     */
     public char get(int x, int y){
         return board[x][y];
     }
-
-    /**
-     * A function to set the value at the specified coordinates
-     * @param x X coordinate.
-     * @param y Y coordinate.
-     * @param value The value to replace the existing character.
-     */
     public void set(int x, int y, char value){
         board[x][y] = value;
         repaint();
     }
-
-    /**
-     * A method that prints the text based version of the board.
-     */
     public void printBoard(){
         for (int i=0; i < size; i++){
             for (int k=0; k < size; k++){
@@ -122,10 +84,6 @@ public class Board extends JPanel {
             System.out.println("");
         }
     }
-    /**
-     * A position structure thats sole purpose is to keep track
-     * of the x and y coordinates of the position. Used in generate.
-     */
     public class Position{
         int x; int y;
         public Position(int x, int y){
@@ -149,14 +107,6 @@ public class Board extends JPanel {
             this.y = y;
         }
     }
-
-    /**
-     * A function whose sole purpose is to update the
-     * cardinal direction values with respect to the current
-     * Cell variable.
-     * @param cC Pass in the currentCell, which is a position
-     * @return the updated cardinal positions
-     */
     public char[] updateDirection(Position cC){
         char north=0,south=0,east=0,west=0;
 
@@ -175,15 +125,6 @@ public class Board extends JPanel {
 
     Position posList[] = new Position[(2*(getX()/2))];
     Position cC = new Position(5,5);
-
-
-    /**
-     * A function that begins to randomly generate a random
-     * maze on the game board at the specified posX and posY
-     * coordinates of the game board. Pseudocode used from Wikipedia.
-     * @param posX The x coordinates of the game board.
-     * @param posY The y coordinates of the game board.
-     */
     public void generate(int posX, int posY){
         cC = new Position(posX,posY);
         set(cC.getX(),cC.getY(), 'v');
