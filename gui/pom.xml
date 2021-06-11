@@ -23,12 +23,6 @@
             <version>0.0.1</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.emp.gl</groupId>
-            <artifactId>direction</artifactId>
-            <version>0.0.1</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <properties>

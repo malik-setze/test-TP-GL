@@ -12,7 +12,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="gui" />
-    <orderEntry type="library" name="Maven: org.emp.gl:direction:0.0.1" level="project" />
     <orderEntry type="module" module-name="timer-service" />
     <orderEntry type="module" module-name="timer-service-impl" />
     <orderEntry type="module" module-name="lookup" />

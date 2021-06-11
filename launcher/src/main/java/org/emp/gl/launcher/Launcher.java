@@ -1,3 +1,5 @@
+package org.emp.gl.launcher;
+
 import org.emp.gl.gui.Board;
 import org.emp.gl.gui.MainMenu;
 import org.emp.gl.gui.Player;

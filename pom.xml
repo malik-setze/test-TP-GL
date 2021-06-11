@@ -13,8 +13,6 @@
     <module>timer-service</module>
     <module>timer-service-impl</module>
     <module>lookup</module>
-      <module>direction</module>
-      <module>move</module>
   </modules>
   <packaging>pom</packaging>
   <name>labyrinthe</name>
